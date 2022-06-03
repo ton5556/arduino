@@ -12,10 +12,10 @@ void setup() {
   servo.attach(servoPin);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+  pinMode(Relay, OUTPUT);
   servo.write(0);
   delay(100);
   servo.detach();
-  pinMode(Relay, OUTPUT);
 }
 
 void measure() {
@@ -38,7 +38,6 @@ void loop() {
   dist = (aver[0] + aver[1] + aver[2]) / 3;
 
   if ( dist < 50 ) {
-    digitalWrite(Relay, HIGH);
     servo.attach(servoPin);
     delay(1);
     servo.write(0);
@@ -46,6 +45,7 @@ void loop() {
     servo.write(150);
     delay(1000);
     servo.detach();
+    digitalWrite(Relay, HIGH);
   }
   else {
     digitalWrite(Relay, LOW); 
