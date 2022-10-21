@@ -51,5 +51,5 @@ void loop() {
     digitalWrite(Relay, LOW); 
   }
   delay(500);
-  Serial.print(opens);
+  Serial.print("opens");
 }
